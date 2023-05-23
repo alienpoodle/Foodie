@@ -16,32 +16,74 @@
   <!-- <link rel="manifest" href="/pwa.webmanifest"> -->
   <!-- CSS  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/card.css">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark fixed-top">
-		<div class="container-fluid">
+	<nav class="navbar navbar-dark bg-dark fixed-top overflow-hidden">
+		<div class="container-fluid ">
 		  <a class="navbar-brand" href="#">Foodie Restaurant</a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+		  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+			<div class="input-group me-2">
+				<input  id="searchbox" type="text" class="form-control" placeholder="Search menu items" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+			  </div>
+			<div class="btn-group" role="group" aria-label="First group">
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+			</div>
+		  </div>
+		  <div class="offcanvas offcanvas-end text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
 			<div class="offcanvas-header">
 			  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
 			  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
-			<div class="offcanvas-body">
-			  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-				<li class="nav-item">
-				  <a class="nav-link active" aria-current="page" href="#search">Home</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#the-default-view">Link</a>
-				</li>
-				
-			  </ul>
+			<div class="offcanvas-body ">
+				<div class="row h-100 overflow-auto">
+					<div >
+						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
+							<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#search">Home</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link" href="#the-default-view">Link</a>
+							</li>
+							
+						</ul>
+					</div>
+			  
+					<div class="list-group">
+						<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+						  <div class="d-flex w-100 justify-content-between">
+							<h5 class="mb-1">List group item heading</h5>
+							<small>3 days ago</small>
+						  </div>
+						  <p class="mb-1">Some placeholder content in a paragraph.</p>
+						  <small>And some small print.</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action ist-group-item-dark">
+						  <div class="d-flex w-100 justify-content-between">
+								<div class="center">
+								   <h5>ADDRESS:</h5>
+								   <p>Dina Restaurant <br>
+									  40 Park Ave, Brooklyn, New York 70250
+								   </p>
+								</div>
+						  </div>
+						  <p class="mb-1">Some placeholder content in a paragraph.</p>
+						  <small class="text-muted">And some muted small print.</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action ist-group-item-dark">
+						  <div class="d-flex w-100 justify-content-between">
+							<h5 class="mb-1">List group item heading</h5>
+							<small class="text-muted">3 days ago</small>
+						  </div>
+						  <p class="mb-1">Some placeholder content in a paragraph.</p>
+						  <small class="text-muted">And some muted small print.</small>
+						</a>
+					</div>
+			</div>
 			</div>
 		  </div>
 		</div>
@@ -65,15 +107,7 @@
 				<div class="container blue-grey">
 				  <h2>Recipe Search</h2>
 				</div>
-				
-				<form class="container ">
-					<div class="container margin">
-						<label>Input the dish you would like to search below</label>
-						<input class="input " type="text">
-						<button class="btn blue-grey margin">Search</button>
-					</div>
-				</form>
-				
+	
 			</div>
 				
 		</div>
@@ -82,35 +116,47 @@
 	
 	<div id="the-default-view" class="section">
 		<div class="row center">
-		    <div class="container">
-				<div class="menu-item text-dark">
-					  <div class="menu-item__item ">
-						<div class="menu-item__img">
-						  
-						  <img src="https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="">
-						<p class="menu-item__price">$15.00</p>
-						</div>
-						<div class="menu-item__content">
-						  <!-- <span class="menu-item__code">26 December 2019</span> -->
-						  <div class="menu-item__title">Spicy Ramen Noodle bowl</div>
-						  <div class="menu-item__text">Noodles, veg-miso broth, spicy tofu, avocado, spinach, Napa cabbage, scallions, and spicy aioli.</div>
-						  <div class="row">
-							<span><strong>Extras:</strong></span>
-							<div class="row">
-								<div class="col-4">
-									<span class="fs-6 fw-light">Egg - $1.00</span> 
+		    <div class="container ">
+				<div class="menu-grid text-dark">
+					<div class="menu-item text-dark">
+						<div class="menu-item__item ">
+							<div class="menu-item__img">
+								<span class="position-absolute bottom-0 start-0  badge bg-success">
+									<h2 class="fs-5 fw-light menu-item__category"></h2>
+									<span class="visually-hidden">unread messages</span>
+								  </span>
+								
+							<img class="food-image" src="https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="">
+
+							</div>
+							<div class="menu-item__content">
+							<!-- <span class="menu-item__code">26 December 2019</span> -->
+								<div class="row">
+									
 								</div>
-								<div class="col-4">
-									text
+								<div class="row">
+									<div class="col-9 menu-item__title"></div>
+									<div class="col menu-item__price "></div>
 								</div>
-								<div class="col-4">
-									text
+								<div class="menu-item__text">Noodles, veg-miso broth, spicy tofu, avocado, spinach, Napa cabbage, scallions, and spicy aioli.</div>
+								<div class="row">
+									<span><strong>Extras:</strong></span>
+									<div class="row">
+										
+										<div class="menu-item__extra-grid">
+											<ul class="menu-item__additional list-group  list-group-horizontal">
+
+											</ul>
+										</div>
+									</div>
 								</div>
 							</div>
-						  </div>
 						</div>
-					  </div>
+					</div>
 				</div>
+				
+
+				
 			</div>
 		</div>
 	</div>
@@ -128,7 +174,8 @@
   <!--  Scripts-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
   <script src="js/menu.js"></script>
    
   
