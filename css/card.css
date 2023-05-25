@@ -134,6 +134,7 @@
   color: #4e4a67;
   margin-bottom: 30px;
   line-height: 1.5em;
+  overflow-wrap: break-word;
 }
 .menu-item__button {
   display: inline-flex;
@@ -147,6 +148,10 @@
   justify-content: center;
   text-align: center;
   letter-spacing: 1px;
+}
+
+.menu-item__extra-grid {
+  margin-bottom: 1.2rem;
 }
 
 .menu-item__button-price {

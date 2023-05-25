@@ -18,7 +18,7 @@ window.addEventListener("load", function() {
              
               $.each(extras, function(subindex,value){
                 //var addditional = $(".menu-item__additional:first").clone() //clone first divs
-                var addditional = $('<li class="list-group-item">'+ value+'</li>');
+                var addditional = $('<li class="list-group-item list-group-item-action">'+ value+'</li>');
                 //$(cards).find(".menu-item__extra").html(item);
                 $(addditional).appendTo($(".menu-item__additional"));
               });
