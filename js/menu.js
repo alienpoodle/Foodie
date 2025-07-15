@@ -5,7 +5,7 @@ $(function() {
 
     $.ajax({
         // Updated URL to point to the local menu.json file
-        url: "menu.json", 
+        url: "https://alienpoodle.github.io/Foodie/menu.json", 
         success: function(result) {
             $.each(result, function(index, item) {
                 // Clone the first menu-item template for each new item
