@@ -1,11 +1,15 @@
-// Use $(function() { ... }); for document ready, no need for window.addEventListener("load")
+// Global variable to store menu items after they are loaded
+// Initialize as an empty array
+let allMenuItems = []; 
+
+// Use $(function() { ... }); for document ready
 $(function() {
     // Hide the first menu item template immediately
     $(".menu-item:first").hide();
 
     $.ajax({
         // Updated URL to point to the local menu.json file
-        url: "https://alienpoodle.github.io/menu.json", 
+        url: "menu.json", 
         success: function(result) {
             $.each(result, function(index, item) {
                 // Clone the first menu-item template for each new item
@@ -41,6 +45,14 @@ $(function() {
                 // Append the entire populated card to the menu grid
                 $cards.appendTo($(".menu-grid")); 
             });
+
+            // After all cards are appended by the AJAX request,
+            // populate the global allMenuItems array with the *actual* displayed cards.
+            // We use :not(:first-child) to exclude the initial hidden template card.
+            allMenuItems = document.querySelectorAll('.menu-item:not(:first-child)'); 
+            console.log("Menu items successfully loaded and ready for search. Found:", allMenuItems.length, "items.");
+            // *** IMPORTANT FIX END ***
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error loading menu.json:", textStatus, errorThrown);
@@ -64,8 +76,16 @@ if (searchInput) {
 }
 
 function liveSearch() {
-    // Locate the card elements
-    let cards = document.querySelectorAll('.menu-item');
+    // *** IMPORTANT FIX START ***
+    // Now, instead of querying the DOM every time, we use the pre-populated array.
+    let cards = allMenuItems; 
+    
+    // Add a safeguard in case search is somehow triggered before items are loaded
+    if (cards.length === 0) {
+        console.warn("Search attempted, but no menu items are loaded yet.");
+        return; // Exit the function if no items are present
+    }
+
     // Locate the search input
     let search_query = document.getElementById("searchbox").value;
 
