@@ -5,7 +5,7 @@ $(function() {
 
     $.ajax({
         // Updated URL to point to the local menu.json file
-        url: "https://alienpoodle.github.io/menu.json", 
+        url: "menu.json", 
         success: function(result) {
             $.each(result, function(index, item) {
                 // Clone the first menu-item template for each new item
@@ -13,6 +13,7 @@ $(function() {
                 
                 var name = item.name;
                 var category = item.category;
+                var description = item.description; // Get description from JSON
                 var extras = item.extra;
                 var cost = item.cost;
                 var imageurl = item.image;
@@ -22,7 +23,9 @@ $(function() {
                 $cards.find(".menu-item__category").html(category);
                 $cards.find(".menu-item__price").html("$ " + cost); 
                 $cards.find(".food-image").attr('src', imageurl);
-                
+                $cards.find(".food-image").attr('alt', name); // Set alt text dynamically from name
+                $cards.find(".menu-item__text").html(description); // Set description dynamically
+
                 // Clear any existing extra items from the template's ul
                 $cards.find(".menu-item__additional").empty(); 
 
